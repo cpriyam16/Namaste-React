@@ -4,6 +4,8 @@
   "description": "Learning curve from Namaste React by Akshay Saini",
   "main": "App.js",
   "scripts": {
+    "start": "parcel index.html",
+    "build": "parcel build index.html",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "Priyam Chakraborty",
