@@ -48,3 +48,14 @@
 .res-card-img {
     max-width: 100%;
 }
+
+.filter {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.filter button {
+    padding: 5px 10px;
+    cursor: pointer;
+    margin: 0 5px;
+}
