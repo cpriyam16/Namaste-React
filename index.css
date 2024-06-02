@@ -28,6 +28,11 @@
     cursor: pointer;
 }
 
+.login {
+    border: 1px solid black;
+    padding: 5px 10px;
+}
+
 .res-container {
     display: flex;
     justify-content: flex-start;
@@ -58,4 +63,18 @@
     padding: 5px 10px;
     cursor: pointer;
     margin: 0 5px;
+}
+
+.shimmer-cotainer {
+    display: flex;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+}
+
+.shimmer-card {
+    width: 250px;
+    height: 300px;
+    padding: 15px;
+    margin: 30px 15px;
+    background-color: #eee;
 }
