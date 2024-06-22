@@ -1,4 +1,4 @@
-import RestaurantCard from "./RestaurantCard";
+import RestaurantCard, {withLabelOpen} from "./RestaurantCard";
 import { useEffect, useState } from "react";
 import Shimmer from "./Shimmer";
 import { Link } from "react-router-dom";
@@ -39,6 +39,10 @@ const Body = () => {
 
     };
 
+    console.log(restaurantCardList)
+
+    const OpenRestaurants = withLabelOpen(RestaurantCard);
+
     //conditional rendering
     return restaurantCardList.length === 0 ? (
         <Shimmer />
@@ -62,8 +66,11 @@ const Body = () => {
                 {filteredRestaurant.map((restaurant) => {
                     return (
                         <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id} className="restaurant-card">
-                            <RestaurantCard resCardData={restaurant}
-                            />
+                            {restaurant.info.isOpen ? (
+                                <OpenRestaurants resCardData={restaurant} />
+                            ): (
+<RestaurantCard resCardData={restaurant} />
+                            )}
                         </Link>
                     );
                 })}
