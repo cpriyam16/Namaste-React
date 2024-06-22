@@ -44,24 +44,24 @@ const Body = () => {
         <Shimmer />
     ) : (
         <div className="body" style={bodyStyle}>
-            <div className="filter">
-                <div className="search">
+            <div className="flex align-middle justify-end">
+                <div className="mx-4">
                     <input type="search" className="searchInput" placeholder="search" value={searchText} onChange={(e) => {setSearchText(e.target.value)}} /><button className="searchBtn" onClick={() => {
                         const searchFilterData = restaurantCardList.filter((res) => res.info.name.toLowerCase().includes(searchText.toLowerCase()));
                         setFilteredRestaurant(searchFilterData);
                     }}>Search</button>
                 </div>
-                <button className="filter-btn" onClick={filterListHandler}>
+                <button className=" p-2 from-neutral-50 bg-orange-400 hover: bg-orange-600" onClick={filterListHandler}>
                     Top Rated
                 </button>
                 <button className="unfilter-btn" onClick={unfilterListHandler}>
                     Reset
                 </button>
             </div>
-            <div className="res-container">
+            <div className="res-container flex">
                 {filteredRestaurant.map((restaurant) => {
                     return (
-                        <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id}>
+                        <Link key={restaurant.info.id} to={"/restaurants/" + restaurant.info.id} className="restaurant-card">
                             <RestaurantCard resCardData={restaurant}
                             />
                         </Link>
