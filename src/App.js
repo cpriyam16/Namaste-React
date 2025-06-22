@@ -14,13 +14,18 @@ const AppLayout = () => {
     }, []);
 
     const fetchData = async () => {
-        const data = await fetch('https://www.swiggy.com/dapi/restaurants/list/v5?lat=12.9967012&lng=77.758197&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING');
+        const response = await fetch('https://raw.githubusercontent.com/namastedev/namaste-react/refs/heads/main/swiggy-api');
 
-        const json = await data.json();
+        const json = await response.json();
 
-        setListOfRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-        setSearchRestaurants(json?.data?.cards[4]?.card?.card?.gridElements?.infoWithStyle?.restaurants);
-    }
+        const restaurants = json?.data?.cards?.find(card =>
+            card.card?.card?.gridElements?.infoWithStyle?.restaurants
+        )?.card?.card?.gridElements?.infoWithStyle?.restaurants;
+
+        setListOfRestaurants(restaurants);
+        setSearchRestaurants(restaurants);
+    };
+
 
     const handleSearch = () => {
         const searchedRestaurants = searchRestaurants.filter(restaurant => {
